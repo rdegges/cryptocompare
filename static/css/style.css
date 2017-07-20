@@ -1,0 +1,20 @@
+v-cloak {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+td img {
+  width: 25px;
+}
+
+.jumbotron p {
+  font-size: 1.2em;
+}
+
+.jumbotron {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
