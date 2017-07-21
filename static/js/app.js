@@ -103,4 +103,4 @@ let app = new Vue({
  */
 setInterval(() => {
   app.getCoins();
-}, 60000);
+}, UPDATE_INTERVAL);
