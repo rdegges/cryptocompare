@@ -7,7 +7,8 @@
 // The API we're using for grabbing metadata about each cryptocurrency
 // (including logo images). The service can be found at:
 // https://www.cryptocompare.com/api/
-let CRYPTOCOMPARE_API_URI = "https://www.cryptocompare.com";
+let CRYPTOCOMPARE_API_URI = "https://min-api.cryptocompare.com";
+let CRYPTOCOMPARE_URI = "https://www.cryptocompare.com";
 
 // The API we're using for grabbing cryptocurrency prices.  The service can be
 // found at: https://coinmarketcap.com/api/
@@ -32,7 +33,7 @@ let app = new Vue({
     getCoinData: function() {
       let self = this;
 
-      axios.get(CRYPTOCOMPARE_API_URI + "/api/data/coinlist")
+      axios.get(CRYPTOCOMPARE_API_URI + "/data/all/coinlist")
         .then((resp) => {
           this.coinData = resp.data.Data;
           this.getCoins();
@@ -73,7 +74,7 @@ let app = new Vue({
       symbol = (symbol === "MIOTA" ? "IOT" : symbol);
       symbol = (symbol === "VERI" ? "VRM" : symbol);
 
-      return CRYPTOCOMPARE_API_URI + this.coinData[symbol].ImageUrl;
+      return CRYPTOCOMPARE_URI + this.coinData[symbol].ImageUrl;
     },
 
     /**
