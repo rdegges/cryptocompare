@@ -21,7 +21,7 @@ let UPDATE_INTERVAL = 60 * 1000;
 let app = new Vue({
   el: "#app",
   data: {
-    coins: [],
+    coins: {},
     coinData: {}
   },
   methods: {
@@ -51,9 +51,9 @@ let app = new Vue({
     getCoins: function() {
       let self = this;
 
-      axios.get(COINMARKETCAP_API_URI + "/v1/ticker/?limit=10")
+      axios.get(COINMARKETCAP_API_URI + "/v2/ticker/?limit=100")
         .then((resp) => {
-          this.coins = resp.data;
+          this.coins = resp.data.data;
         })
         .catch((err) => {
           console.error(err);
@@ -73,8 +73,13 @@ let app = new Vue({
       // for currency images
       symbol = (symbol === "MIOTA" ? "IOT" : symbol);
       symbol = (symbol === "VERI" ? "VRM" : symbol);
-
-      return CRYPTOCOMPARE_URI + this.coinData[symbol].ImageUrl;
+      
+      try {
+          return CRYPTOCOMPARE_URI + this.coinData[symbol].ImageUrl;
+      
+      } catch(err) {
+        console.log(err);
+      }
     },
 
     /**
