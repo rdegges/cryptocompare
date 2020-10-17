@@ -17,7 +17,7 @@ how you'd like to speculate.
 ![website image][]
 
 
-## Technical Details
+## website Technical Details
 
 This application is built with plain old HTML and [Bootstrap][] for CSS.  I'm
 also using a Bootstrap theme called [Simplex][] which makes things look a tiny
